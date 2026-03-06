@@ -1,4 +1,4 @@
-# Members Only 🔐
+# Members Only 
 
 A role-based access-controlled message board where members can post anonymously to the public, but fellow members can see who wrote what.
 Built with Node.js, Express, PostgreSQL, and Passport.js as part of The Odin Project curriculum.
