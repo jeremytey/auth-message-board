@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const expressSession = require('express-session');
 const passport = require('./config/passport');
-const authRouter = require('./routers/authRouter');
+const authRouter = require('./routers/authorRouter');
 const messageRouter = require('./routers/messageRouter');
 const methodOverride = require('method-override');
 
@@ -20,6 +20,10 @@ app.use(expressSession({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use((req, res, next) => {
+    res.locals.currentUser = req.user;
+    next();
+});
 app.use(methodOverride('_method'));
 
 
