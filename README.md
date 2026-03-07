@@ -46,14 +46,11 @@ cd auth-message-board
 ### 2. Install dependencies
 
 ```bash
-npm install
+npm init -y
+npm install express ejs pg bcrypt passport passport-local express-session connect-pg-simple express-validator express-rate-limit dotenv
 ```
 
 ### 3. Create your environment file
-
-```bash
-cp .env.example .env
-```
 
 Then open `.env` and fill in your values:
 
