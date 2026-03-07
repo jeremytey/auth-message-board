@@ -1,0 +1,130 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: system-ui, sans-serif;
+    background: #f5f5f5;
+    color: #222;
+    line-height: 1.6;
+}
+
+header {
+    background: #1a1a2e;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 { font-size: 1.25rem; }
+
+nav { display: flex; gap: 1rem; align-items: center; }
+
+nav a {
+    color: #aab8d4;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+nav a:hover { color: white; }
+
+nav span { color: #aab8d4; font-size: 0.9rem; }
+
+nav form { margin: 0; }
+
+nav button {
+    background: none;
+    border: 1px solid #aab8d4;
+    color: #aab8d4;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+nav button:hover { border-color: white; color: white; }
+
+main {
+    max-width: 720px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+h2 { margin-bottom: 1rem; }
+
+.message-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.message-card h3 { font-size: 1rem; }
+
+.message-card small { color: #666; font-size: 0.8rem; }
+
+.message-card form { margin-top: 0.25rem; }
+
+.message-card button {
+    background: #c0392b;
+    color: white;
+    border: none;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+.message-card button:hover { background: #a93226; }
+
+form {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+label { font-size: 0.9rem; font-weight: 600; }
+
+input, textarea {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    font-family: inherit;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #4f8ef7;
+}
+
+button[type="submit"] {
+    background: #1a1a2e;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.25rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    align-self: flex-start;
+}
+
+button[type="submit"]:hover { background: #2a2a4e; }
+
+.error {
+    color: #c0392b;
+    background: #fdecea;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.9rem;
+}

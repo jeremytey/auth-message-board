@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Members Only</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header>
+        <h1>Members Only</h1>
+        <nav>
+            <% if (currentUser) { %>
+                <span>Hello, <%= currentUser.first_name %></span>
+                <% if (currentUser.role === 'guest' || currentUser.role === 'member' || currentUser.role === 'admin') { %>
+                    <a href="/messages/new">New Message</a>
+                <% } %>
+                <% if (currentUser.role === 'guest') { %>
+                    <a href="/passcode/member">Join the Club</a>
+                <% } %>
+                <% if (currentUser.role === 'member') { %>
+                    <a href="/passcode/admin">Become Admin</a>
+                <% } %>
+                <form action="/logout?_method=POST" method="POST">
+                    <button type="submit">Log Out</button>
+                </form>
+            <% } else { %>
+                <a href="/sign-up">Sign Up</a>
+                <a href="/login">Log In</a>
+            <% } %>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Messages</h2>
+        <% if (messages.length === 0) { %>
+            <p>No messages yet. Be the first to post!</p>
+        <% } %>
+        <% messages.forEach(message => { %>
+            <div class="message-card">
+                <h3><%= message.title %></h3>
+                <p><%= message.body %></p>
+                <% if (currentUser && (currentUser.role === 'member' || currentUser.role === 'admin')) { %>
+                    <small>By: <%= message.first_name %> <%= message.last_name %></small>
+                    <small>Posted: <%= new Date(message.created_at).toLocaleDateString() %></small>
+                <% } else { %>
+                    <small>By: Anonymous</small>
+                <% } %>
+                <% if (currentUser && currentUser.role === 'admin') { %>
+                    <form action="/messages/<%= message.id %>?_method=DELETE" method="POST">
+                        <button type="submit">Delete</button>
+                    </form>
+                <% } %>
+            </div>
+        <% }) %>
+    </main>
+</body>
+</html>
