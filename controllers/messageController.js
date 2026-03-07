@@ -38,3 +38,7 @@ exports.deleteMessageById = async (req, res) => {
         res.status(400).send('Unable to perform operation');
     }
 }
+
+exports.getNewMessageForm = (req, res) => {
+    res.render('messageForm');
+}
