@@ -4,8 +4,8 @@ const authMiddleware = require('../middleware/auth');
 const messageRouter = Router();
 
 messageRouter.get('/', messageController.getAllMessages);
-messageRouter.post('/messages', messageController.addNewMessage);
-messageRouter.get('/messages/new', messageController.getMessageForm);
-messageRouter.delete('/messages/:id', messageController.deleteMessageById);
+messageRouter.post('/messages', authMiddleware.requireAuth, messageController.addNewMessage);
+messageRouter.get('/messages/new', authMiddleware.requireAuth, messageController.getNewMessageForm);
+messageRouter.delete('/messages/:id', authMiddleware.requireAdmin, messageController.deleteMessageById);
 
 module.exports = messageRouter;

@@ -59,7 +59,11 @@ exports.logout = (req, res) => {
 }
 
 exports.getMemberPasscodeForm = (req, res) => {
-    res.render('memberPasscodeForm');
+    res.render('memberPasscode', {
+    title: 'Join the Club',
+    description: 'Enter the member passcode to unlock full membership.',
+    action: '/passcode/member'
+});
 }
 
 exports.submitMemberPasscodeForm = (req, res) => {
@@ -74,12 +78,21 @@ exports.submitMemberPasscodeForm = (req, res) => {
             }
         );
     } else {
-        res.render('memberPasscodeForm', {message: "Incorrect passcode"});
+        res.render('memberPasscode', {
+            title: 'Join the Club',
+            description: 'Enter the member passcode to unlock full membership.',
+            action: '/passcode/member',
+            message: "Incorrect passcode"
+        });
     }
 }
 
 exports.getAdminPasscodeForm = (req, res) => {
-    res.render('adminPasscodeForm');
+    res.render('memberPasscode', {
+    title: 'Admin Access',
+    description: 'Enter the admin passcode.',
+    action: '/passcode/admin'
+});
 }
 
 exports.submitAdminPasscodeForm = (req, res) => {
@@ -94,7 +107,12 @@ exports.submitAdminPasscodeForm = (req, res) => {
             }
         );
     } else {
-        res.render('adminPasscodeForm', {message: "Incorrect passcode"});
+        res.render('memberPasscode', {
+            title: 'Admin Access',
+            description: 'Enter the admin passcode.',
+            action: '/passcode/admin',
+            message: "Incorrect passcode"
+        });
     }
 }
 
