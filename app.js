@@ -6,6 +6,7 @@ const passport = require('./config/passport');
 const authRouter = require('./routers/authorRouter');
 const messageRouter = require('./routers/messageRouter');
 const methodOverride = require('method-override');
+app.use(express.static('public'));
 
 // Set EJS as the view engine and specify the views directory
 app.set('view engine', 'ejs');
